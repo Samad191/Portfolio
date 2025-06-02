@@ -11,7 +11,7 @@ import Blogs from "./components/Blogs"
 import { useEffect } from "react"
  
 inject();
-const page = () => {
+const Page = () => {
 
    useEffect(() => {
     window.scrollTo(0, 0);
@@ -39,4 +39,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

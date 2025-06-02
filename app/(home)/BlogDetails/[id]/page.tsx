@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import SolanaImg from '../../../../assets/solana.jpg';
+import SolanaImg from "../../../../assets/solana.jpg";
+import RustImg from "../../../../assets/images.png";
 
 interface BlogDetailsPageProps {
   params: { id: string };
@@ -27,12 +28,11 @@ const Blogs = ({ params }: BlogDetailsPageProps) => {
     const articles = [
       {
         id: "1",
-        title:
-          "Understanding Solana: A Guide to a High-Performance Blockchain",
+        title: "Understanding Solana: A Guide to a High-Performance Blockchain",
         content: [
           {
             type: "paragraph",
-            text: "The Solana web3 has emerged as one of the most technically ambitious and fastest-growing blockchains in the Web3 space. Made for speed, scalability, and low fees, it attracted the attention of both developers and users — but what does Solana really make unique?",
+            text: "The Solana blockchain has emerged as one of the most technically ambitious and fastest-growing blockchains. Made for speed, scalability, and low fees, it attracted the attention of both developers and users — but what does Solana really make unique?",
           },
           {
             type: "paragraph",
@@ -42,8 +42,8 @@ const Blogs = ({ params }: BlogDetailsPageProps) => {
             type: "heading",
             text: "🚀 What is Solana?",
           },
-           {
-            type: 'image',
+          {
+            type: "image",
             src: SolanaImg,
           },
           {
@@ -204,10 +204,72 @@ const Blogs = ({ params }: BlogDetailsPageProps) => {
       },
       {
         id: "2",
-        title: "Web3 Authentication with Signatures",
+        title: "🦀 Understanding Memory Management in Rust",
         content: [
-          "The Solana web3 has emerged as one of the most technically ambitious and fastest-growing blockchains in the Web3 space. Made for speed, scalability, and low fees, it attracted the attention of both developers and users — but what does Solana really make unique?",
-          "In this blog, we will explore the main concepts behind Solana, how it is different from other chains like Ethereum, and why it is receiving traction in the decentralized application (DApp) ecosystem.",
+          {
+            type: para,
+            text: "Rust is a modern systems programming language designed for speed, memory safety, and concurrency — all without needing a garbage collector.",
+          },
+          {
+            type: para,
+            text: "Memory management is a crucial aspect of programming, and Rust stands out by ensuring memory safety without using a garbage collector. Instead of relying on runtime checks, Rust enforces strict rules at compile time through its ownership system. These rules control how memory is accessed and ensure safe composition of programs. Concurrency in another powerful feature of Rust. It is achieved using powerful primitives such as threads, channels, and atomic operations. Thanks to its ownership and type system, the Rust compiler can catch data races at compile time, making it uniquely safe among system programming languages.",
+          },
+          {
+            type: "image",
+            src: RustImg,
+          },
+          {
+            type: para,
+            text: "This article moves through the main concepts of how rust handles the memory safely and effectively.",
+          },
+          {
+            type: head,
+            text: "🔑 Key Concepts in Rust Memory Management",
+          },
+          {
+            type: head,
+            text: "1. Ownership",
+          },
+          {
+            type: para,
+            text: "Every value in Rust has a single owner — the variable that holds it and when the owner goes out of scope the value is dropped",
+          },
+          {
+            type: head,
+            text: "2. Move Semantics",
+          },
+          {
+            type: para,
+            text: "In Rust, types have “move semantics” by default. This means that when you assign a value to a new variable or pass it into a function, the value will be moved rather than copied. This move-by-default model enables Rust to have memory safety guarantees without requiring garbage collection.",
+          },
+          {
+            type: para,
+            text: "Certain types in Rust implement the Copy trait, which means their values are simply copied when moved, leaving the source intact. Types that implement Copy include primitive types like integers, floats, booleans, characters, etc.",
+          },
+          // {
+          //   type: para,
+          //   text: "here comes code snippet",
+          // },
+          {
+            type: head,
+            text: "3. Borrowing and References",
+          },
+          {
+            type: para,
+            text: "In Rust, references are a way to get admission to information without taking ownership of it. Instead of shifting a value or copying it, you may create a reference — a kind of pointer — that permits you to take a look at or use the fee quickly. This reference points to the authentic records, and the possession stays with the authentic variable"
+          },
+          {
+            type: para,
+            text: "The act of the use of a reference is referred to as borrowing. When you borrow a price, you’re saying, “I want to use this, however I don’t need to personal it.” Borrowing lets you skip statistics around for your software with out duplicating it or giving up manage. This is especially beneficial in characteristic calls, where you may want a function to read or alter some thing without taking it over."
+          },
+          {
+            type: head,
+            text: "4. Lifetimes",
+          },
+          {
+            type: para,
+            text: "In Rust, lifetimes are a compile-time feature that tracks how long references are valid. Every reference in Rust has a lifetime, which is the scope for which that reference is guaranteed to be valid. Think of lifetimes as a way for Rust to ensure references do not outlive the data they point to.  ",
+          },
         ],
         date: "2025-05-20",
       },
@@ -216,7 +278,10 @@ const Blogs = ({ params }: BlogDetailsPageProps) => {
     const found = articles.find((a) => a.id === id);
     console.log("found", found);
     if (found) setArticle(found);
-    else router.push("/");
+    else {
+      router.push("/", { scroll: false });
+      window.scrollTo(0, 0);
+    }
   }, [searchParams, router]);
 
   if (!article) return null;
@@ -244,19 +309,19 @@ const Blogs = ({ params }: BlogDetailsPageProps) => {
             return (
               <p
                 key={index}
-                className="mb-6 prose prose-neutral dark:prose-invert max-w-none"
+                className="mb-3 prose prose-neutral dark:prose-invert max-w-none"
               >
                 {block.text}
               </p>
             );
           case "image":
-            console.log('image here', block)
+            console.log("image here", block);
             return (
               <img
                 key={index}
                 src={block.src.src}
                 alt={block.alt}
-                className="my-8 rounded-md shadow-md max-w-full"
+                className="my-8 mx-auto rounded-md shadow-md max-w-full"
                 loading="lazy"
               />
             );

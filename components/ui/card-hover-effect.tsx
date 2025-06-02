@@ -25,8 +25,8 @@ export const HoverEffect = ({
   const router = useRouter();
   console.log('type', type);
   console.log('item', items);
-   const handleClick = () => {
-    router.push('/BlogDetails/1');
+   const handleClick = (idx: number) => {
+    router.push(`/BlogDetails/${idx}`);
   };
 
   return (
@@ -35,7 +35,6 @@ export const HoverEffect = ({
         "grid grid-cols-2  lg:grid-cols-3  py-10",
         className
       )}
-      onClick={() => type == "blogs" ? handleClick() : null }
     >
       {items.map((item, idx) => {
         const Icon = item.Icon;
@@ -44,6 +43,8 @@ export const HoverEffect = ({
           className="relative group  block p-2 h-full w-full"
           onMouseEnter={() => setHoveredIndex(idx)}
           onMouseLeave={() => setHoveredIndex(null)}
+          onClick={() => type == "blogs" ? handleClick(idx + 1) : null }
+
         >
           <AnimatePresence>
             {hoveredIndex === idx && (

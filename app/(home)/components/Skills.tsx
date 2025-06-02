@@ -7,7 +7,6 @@ import {
   SiTypescript,
   SiPostgresql,
   SiMongodb,
-  SiPrisma,
   SiExpress,
   SiTailwindcss,
   SiHtml5,
@@ -18,7 +17,6 @@ import {
   SiEthereum,
   SiSolana,
   SiSocketdotio,
-  
 } from "react-icons/si";
 import { TbBrandNextjs, TbBrandNodejs } from "react-icons/tb";
 
@@ -36,7 +34,6 @@ const Skills = () => {
       text: "React",
       Icon: SiReact,
     },
-
     {
       text: "NextJS",
       Icon: TbBrandNextjs,
@@ -88,13 +85,13 @@ const Skills = () => {
       Icon: SiEthereum,
     },
     {
-        text: "Solana",
-        Icon: SiSolana
+      text: "Solana",
+      Icon: SiSolana,
     },
-     {
-        text: "Socket io",
-        Icon: SiSocketdotio
-    }
+    {
+      text: "Socket io",
+      Icon: SiSocketdotio,
+    },
     // socket io
     // gsap
     // ai agents

@@ -24,11 +24,11 @@ import { TbBrandNextjs, TbBrandNodejs } from "react-icons/tb";
 const Blogs = () => {
   const blogs = [
     {
-      text: "Understanding the architecture of Solana ............ ...... ............ ..........",
+      text: "Understanding architecture of Solana ............ ...... ............",
       Icon: SiSolana,
     },
     {
-      text: "From JavaScript to Rust: Key Mental Shifts for Web3 Engineers",
+      text: "Understanding Memory Management in Rust",
       Icon: SiRust,
     },
     // socket io

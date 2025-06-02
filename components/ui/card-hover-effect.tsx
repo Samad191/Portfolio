@@ -1,12 +1,16 @@
+'use client'
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
 import { IconType } from "react-icons";
 
+import { useRouter } from 'next/navigation'
+
 export const HoverEffect = ({
   items,
   className,
+  type
 }: {
   items: {
     text: string;
@@ -14,8 +18,16 @@ export const HoverEffect = ({
     
   }[];
   className?: string;
+  type: string,
+
 }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const router = useRouter();
+  console.log('type', type);
+  console.log('item', items);
+   const handleClick = () => {
+    router.push('/BlogDetails/1');
+  };
 
   return (
     <div
@@ -23,6 +35,7 @@ export const HoverEffect = ({
         "grid grid-cols-2  lg:grid-cols-3  py-10",
         className
       )}
+      onClick={() => type == "blogs" ? handleClick() : null }
     >
       {items.map((item, idx) => {
         const Icon = item.Icon;

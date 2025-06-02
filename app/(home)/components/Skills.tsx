@@ -106,7 +106,7 @@ const Skills = () => {
         className="flex flex-col items-center justify-center -rotate-6"
       />
 
-      <HoverEffect items={skills} />
+      <HoverEffect items={skills} type="skills" />
     </div>
   );
 };

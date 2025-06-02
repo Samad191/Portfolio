@@ -28,7 +28,7 @@ const Blogs = ({ params }: BlogDetailsPageProps) => {
       {
         id: "1",
         title:
-          "Understanding Solana: A Developer Guide for High-Performance Blockchain",
+          "Understanding Solana: A Guide to a High-Performance Blockchain",
         content: [
           {
             type: "paragraph",

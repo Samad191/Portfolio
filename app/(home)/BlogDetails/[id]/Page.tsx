@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import SolanaImg from "../../../../assets/solana.jpg";
 import RustImg from "../../../../assets/images.png";
+import Image from 'next/image'
 
 interface BlogDetailsPageProps {
   params: { id: string };
@@ -282,7 +283,7 @@ const Blogs = ({ params }: BlogDetailsPageProps) => {
       router.push("/", { scroll: false });
       window.scrollTo(0, 0);
     }
-  }, [searchParams, router]);
+  }, [searchParams, router, id]);
 
   if (!article) return null;
 
@@ -317,7 +318,7 @@ const Blogs = ({ params }: BlogDetailsPageProps) => {
           case "image":
             console.log("image here", block);
             return (
-              <img
+              <Image
                 key={index}
                 src={block.src.src}
                 alt={block.alt}

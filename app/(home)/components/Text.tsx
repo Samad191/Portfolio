@@ -6,9 +6,9 @@ import Link from "next/link";
 import Title from "./Title";
 
 export default function AnimatedTextSequence() {
-  const firstTextRef = useRef(null);
-  const secondTextRef = useRef(null);
-  const thirdTextRef = useRef(null);
+  const firstTextRef: any = useRef(null);
+  const secondTextRef: any = useRef(null);
+  const thirdTextRef: any = useRef(null);
 
 
   const firstText = "Nice to meet you!";
